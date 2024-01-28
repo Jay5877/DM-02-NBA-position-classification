@@ -1,3 +1,0 @@
-['Player', 'Pos', 'Tm', 'GS', 'FGA'] - 0.651, 0.552
-['Player', 'Pos', 'Tm', 'GS', 'FG%'] - 0.661, 0.0.568
-['Player', 'Pos', 'Tm', 'GS', 'FG','FGA'] - 0.648, 0.544 
