@@ -1,0 +1,37 @@
+-----------------------------Task 1-----------------------------------
+Training accuracy:0.605, Test accuracy:0.568
+
+-----------------------------Task 2------------------------------------
+Confusion matrix:
+Predicted   C  PF  PG  SF  SG  All
+True
+C          22   1   0   0   0   23
+PF         10  10   2   0   4   26
+PG          0   2  17   0   5   24
+SF          3   9   0   3   6   21
+SG          0   4   7   1  19   31
+All        35  26  26   4  34  125 
+
+-----------------------------Task 3------------------------------------
+Cross-validation scores: [0.58, 0.48, 0.5, 0.5, 0.5, 0.48, 0.52, 0.55102041, 0.57142857, 0.51020408]
+Average cross-validation score: 0.52
+
+-----------------------------Task 4------------------------------------
+-> Initially, my accuracy of prediction was greatly impacted by my initial decision of which classifier to utilize. 
+Because the SVM model best fits the dataset, I prefer it over the KNN, Decision Tree, and Naive Bayes models. 
+The dataset is non-categorical, non-clustered, and contains a large number of continuous datapoints. 
+KNN and Decision Tree were therefore not practical choices. 
+Additionally, for the provided dataset, NaiveBayes's assumption of independent data features is invalid. As a result, 
+SVM, which performs well with continuous data and takes into account the relationship between feature points, was the sole remaining option with the best fit.
+
+-> I had to remove a few unimapact full data features from the dataset after deciding to use SVM since they were causing the model to match the data too closely.
+
+-> Due to the extremely sparse nature of the data, accuracy remained poor even after removing data columns. Therefore, I applied standard scaling to the training set to increase the data's resistance to noise and outliers.
+This had a minimal impact on accuracy but a big impact on computation time.
+
+-> class SF is problematic since the position is both offensive and defensive, and the confusion matrix
+demonstrates that the model is unable to accurately anticipate that position.
+
+-> In order to overcome overfitting, values of C were iterated over for hyperparameter tuning.
+
+-> In order to address the overfitting issue, I had to modify the model's parameters and data features. At one point, the model's training accuracy was 68%, while its testing accuracy was 59%.
